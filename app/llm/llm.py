@@ -1,15 +1,16 @@
 from app.utils.config import config
-from app.prompts.prompt import prompt
-
+from app.prompts.job_selector import prompt
+from app.embeddings.embedding import extract_content
 
 from langchain_ollama import ChatOllama
 
-model = ChatOllama(model = 'gemma4', temperature=0.5)
+model = ChatOllama(model = config.model_name, temperature=0.5)
 
 llm = prompt | model
 
-response = llm.invoke(
-    "What is your parameter size?"
-)
+
+resume_content = extract_content('./app/resume/Siranjeevi_v1_2p.pdf')
+
+response = llm.invoke(resume_content)
 
 print (response.content)
