@@ -1,5 +1,5 @@
 from app.utils.config import config
-from app.prompts.job_selector import prompt
+from app.prompts.prompt import prompt
 from app.embeddings.embedding import extract_content
 
 from langchain_ollama import ChatOllama

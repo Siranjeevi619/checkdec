@@ -21,5 +21,7 @@ prompt = ChatPromptTemplate([
             3. Match Percentage for each role
             4. Reason for Recommendation
         """)
-    ,("user","{resume_content}")
+    ,("user","{resume_content}"),
+            ("placeholder", "{agent_scratchpad}")
+
     ])
